@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo | Cash Out</title>
+    <link rel="shortcut icon" href="/assets/logo.png" type="" />
+
+    <!-- tailwind + daisy ui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- theme cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style>
+      * {
+        font-family: "Outfit", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen max-w-md bg-base-200 mx-auto">
+    <header
+      class="border-b-1 border-neutral/10 bg-base-200 mx-auto sticky top-0 bg-base-200 z-10"
+    >
+      <section class="w-11/12 mx-auto py-3 flex justify-between items-center">
+        <div class="Left flex gap-2.5">
+          <div>
+            <img src="./assets/logo.png" alt="" class="logo w-[60px]" />
+          </div>
+          <div class="balance-info">
+            <h2 class="text-2xl font-bold">
+              $ <span id="balance">45000</span>
+            </h2>
+            <p class="text-neutral/50">Available Balance</p>
+          </div>
+        </div>
+
+        <div class="Right aura">
+          <button id="log-out" class="btn btn-soft">
+            <i
+              class="fa-light fa-arrow-right-from-bracket fa-flip-horizontal"
+            ></i
+            >Log Out
+          </button>
+        </div>
+      </section>
+    </header>
+
+    <section class="w-11/12 mx-auto mt-8 space-y-5">
+      <h2 class="font-bold text-3xl">
+        Welcome to Pay<span class="text-primary">oo</span>
+      </h2>
+      <p class="text-neutral/50">
+        Enjoy easy and convenient financial services with us. Cashout charge is
+        low and
+      </p>
+
+      <div class="buttons grid grid-cols-3 gap-4 mt-6">
+        <button onclick="showOnly('add-money')"
+          class="btn flex-col h-full btn-primary btn-soft rounded-md py-4"
+        >
+          <img src="/assets/opt-1.png" alt="" />Add Money
+        </button>
+        <button onclick="showOnly('cash-out')"  class="btn flex-col h-full btn-primary btn-soft rounded-md py-4">
+          <img src="/assets/opt-2.png" alt="" />Cashout
+        </button>
+        <button onclick="showOnly('send-out')"
+          class="btn flex-col h-full btn-primary btn-soft rounded-md py-4"
+        >
+          <img src="/assets/opt-3.png" alt="" />Send Money
+        </button>
+        <button onclick="showOnly('get-bonus')"
+          class="btn flex-col h-full btn-primary btn-soft rounded-md py-4"
+        >
+          <img src="/assets/opt-4.png" alt="" />Get Bonus
+        </button>
+        <button onclick="showOnly('pay-bill')"
+          class="btn flex-col h-full btn-primary btn-soft rounded-md py-4"
+        >
+          <img src="/assets/opt-5.png" alt="" />Pay Bill
+        </button>
+        <button onclick="showOnly('tran-history')"
+          class="btn flex-col h-full btn-primary btn-soft rounded-md py-4"
+        >
+          <img src="/assets/opt-6.png" alt="" />Transactions
+        </button>
+      </div>
+    </section>
+
+    <section  id="add-money" class="add-money w-11/12 mx-auto py-8 hidden ">
+      <h1 class="mb-5 text-2xl font-bold">Add Money</h1>
+
+      <div class="card bg-base-100 w-full shadow rounded-3xl">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            
+            <label class="label text-lg font-medium text-base-500"
+              >Select A Bank</label >
+            <select id="add-bank" class="select rounded-full bg-base-200 w-full">
+              <option disabled selected>Select bank</option>
+              <option value="DBBL">Dutch Bangla Bank PLC</option>
+              <option value="DBL">Dhaka Bank PLC </option>
+              <option value="MTBL">Mutual Trust Bank PLC</option>
+              <option value="CBL">City Bank PLC</option>
+              <option value="PBL">Pubali Bank PLC</option>
+            </select>
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Account Number</label
+            >
+            <input
+              id="add-account"
+              type="number"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter 11 digit account number"
+              value=""
+            />
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Amount to Add</label
+            >
+            <input
+              id="add-amount"
+              type="text"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Add Amount"
+              required
+            />
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Pin Number</label
+            >
+            <input
+              id="add-pin"
+              maxlength="4"
+              minlength="4"
+              type="password"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter 4 Digit Pin Number"
+              required
+            />
+
+            <button
+              id="btn-add"
+              class="btn btn-neutral mt-4 rounded-4xl bg-primary font-semibold"
+            >
+              Add Money
+            </button>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+    <section id="cash-out" class="cash-out w-11/12 mx-auto py-8 hidden ">
+      <h1 class="mb-5 text-2xl font-bold">Cashout</h1>
+
+      <div class="card bg-base-100 w-full shadow rounded-3xl">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            <label class="label text-lg font-medium text-base-500"
+              >Agent Number</label
+            >
+            <input
+              id="agent-number"
+              maxlength="11"
+              minlength="11"
+              type="text"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter 11 digit number"
+              value=""
+              required
+            />
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Amount</label
+            >
+            <input
+              id="cashout-amount"
+              maxlength="6"
+              minlength="3"
+              type="number"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter amount to withdraw"
+              required
+            />
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Pin Number</label
+            >
+            <input
+              id="cashout-pin"
+              maxlength="4"
+              minlength="4"
+              type="password"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter 4 Digit Pin"
+              required
+            />
+
+            <button
+              id="btn-cashout"
+              class="btn btn-neutral mt-4 rounded-4xl bg-primary font-semibold"
+            >
+              Withdraw Money
+            </button>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+
+
+     <section id="send-out" class="cash-out w-11/12 mx-auto py-8 hidden ">
+      <h1 class="mb-5 text-2xl font-bold">Send Money</h1>
+
+      <div class="card bg-base-100 w-full shadow rounded-3xl">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            <label class="label text-lg font-medium text-base-500"
+              >Account Number</label
+            >
+            <input
+              id="send-number"
+              maxlength="11"
+              minlength="11"
+              type="text"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter 11 digit number"
+              value=""
+              required
+            />
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Amount</label
+            >
+            <input
+              id="send-amount"
+              maxlength="6"
+              minlength="3"
+              type="number"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter amount to Send"
+              required
+            />
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Pin Number</label
+            >
+            <input
+              id="send-pin"
+              maxlength="4"
+              minlength="4"
+              type="password"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter 4 Digit Pin"
+              required
+            />
+
+            <button
+              id="btn-cashout"
+              class="btn btn-neutral mt-4 rounded-4xl bg-primary font-semibold"
+            >
+              Send Money
+            </button>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+
+
+     <section id="get-bonus" class="cash-out w-11/12 mx-auto py-8 hidden ">
+      <h1 class="mb-5 text-2xl font-bold">Get Bonus</h1>
+
+      <div class="card bg-base-100 w-full shadow rounded-3xl">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            <label class="label text-lg font-medium text-base-500"
+              >Enter Bonus Coupon</label
+            >
+            <input
+              id="cupon-number"
+              maxlength="8"
+              minlength="8"
+              type="text"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter your coupon"
+              value=""
+              required
+            />
+            
+            <button
+              id="btn-cashout"
+              class="btn btn-neutral mt-4 rounded-4xl bg-primary font-semibold"
+            >
+              Get Bonus
+            </button>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section  id="pay-bill" class="add-money w-11/12 mx-auto py-8 hidden ">
+      <h1 class="mb-5 text-2xl font-bold">Pay Bill</h1>
+
+      <div class="card bg-base-100 w-full shadow rounded-3xl">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            
+            <label class="label text-lg font-medium text-base-500"
+              >Select To Pay</label >
+            <select id="add-bank" class="select rounded-full bg-base-200 w-full">
+              <option disabled selected>Select back</option>
+              <option value="DBBL">DESCO Pepaid</option>
+              <option value="DBL">DESCO Postpaid </option>
+              <option value="MTBL">WASA Postpaid</option>
+              <option value="CBL">Palli Bidyut</option>
+              <option value="PBL">DPDC Prepaid</option>
+              <option value="PBL">DPDC Postpaid</option>
+            </select>
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Biller Account Number</label
+            >
+            <input
+              id="bill-account"
+              type="number"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter account number"
+              value="145621"
+            />
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Amount to Pay</label
+            >
+            <input
+              id="bill-amount"
+              type="text"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Add Amount to pay"
+              required
+            />
+
+            <br />
+
+            <label class="label text-lg font-medium text-base-500"
+              >Pin Number</label
+            >
+            <input
+              id="add-pin"
+              maxlength="4"
+              minlength="4"
+              type="password"
+              class="input rounded-full bg-base-200 w-full"
+              placeholder="Enter 4 Digit Pin Number"
+              required
+            />
+
+            <button
+              id="btn-add"
+              class="btn btn-neutral mt-4 rounded-4xl bg-primary font-semibold"
+            >
+              Pay Now
+            </button>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tran-history" class="add-money w-11/12 mx-auto py-10 hidden " >
+      <h1 class="mb-5 text-2xl font-bold">Transaction History</h1>
+
+
+      <ul class="list bg-base-100 rounded-box shadow-md ">
+  
+  <li class="list-row">
+    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-5.png"/></div>
+    <div>
+      <div class="text-lg uppercase font-semibold opacity-60">Electricity bill</div>
+      <div > Today 3.45 pm </div>
+    </div>
+  </li>
+  
+  <li class="list-row">
+    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-1.png"/></div>
+    <div>
+      <div class="text-lg uppercase font-semibold opacity-60" >Cash Deposit</div>
+      <div>Yesterday 10.15 pm</div>
+    </div>
+  </li>
+  
+  <li class="list-row">
+    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-2.png"/></div>
+    <div>
+      <div class="text-lg uppercase font-semibold opacity-60">Money Withdraw</div>
+      <div> 12 Sept 11.00 am </div>
+    </div>
+  </li>
+
+  <li class="list-row">
+    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-4.png"/></div>
+    <div>
+      <div class="text-lg uppercase font-semibold opacity-60">Got Rewards</div>
+      <div>31 August 5.00 pm  </div>
+    </div>
+  </li>
+  
+</ul>
+      
+    
+    
+    
+    </section>
+
+
+
+
+
+
+    
+    <script src="/script/machines.js"></script>
+    <script src="/script/add-money.js"></script>
+    <script src="/script/machine.js"></script>
+    <script src="./script/cashout.js"></script>
+  </body>
+</html>

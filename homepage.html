@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payoo | Cash Out</title>
+    <title>Payoo | Home</title>
     <link rel="shortcut icon" href="/assets/logo.png" type="" />
 
     <!-- tailwind + daisy ui -->
@@ -106,7 +106,7 @@
         >
           <img src="/assets/opt-5.png" alt="" />Pay Bill
         </button>
-        <button onclick="showOnly('tran-history')"
+        <button onclick="showOnly('history')"
           class="btn flex-col h-full btn-primary btn-soft rounded-md py-4"
         >
           <img src="/assets/opt-6.png" alt="" />Transactions
@@ -413,50 +413,15 @@
     </section>
 
 
-    <section id="tran-history" class="add-money w-11/12 mx-auto py-10 hidden " >
-      <h1 class="mb-5 text-2xl font-bold">Transaction History</h1>
+   <section id="history" class="add-money w-11/12 mx-auto py-8  hidden ">
+     <h1 class="mb-5 text-2xl font-bold">Transaction History</h1>
 
+     <div class="space-y-5" id="history-container">
+     
 
-      <ul class="list bg-base-100 rounded-box shadow-md ">
-  
-  <li class="list-row">
-    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-5.png"/></div>
-    <div>
-      <div class="text-lg uppercase font-semibold opacity-60">Electricity bill</div>
-      <div > Today 3.45 pm </div>
-    </div>
-  </li>
-  
-  <li class="list-row">
-    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-1.png"/></div>
-    <div>
-      <div class="text-lg uppercase font-semibold opacity-60" >Cash Deposit</div>
-      <div>Yesterday 10.15 pm</div>
-    </div>
-  </li>
-  
-  <li class="list-row">
-    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-2.png"/></div>
-    <div>
-      <div class="text-lg uppercase font-semibold opacity-60">Money Withdraw</div>
-      <div> 12 Sept 11.00 am </div>
-    </div>
-  </li>
+     </div>
 
-  <li class="list-row">
-    <div><img class="size-12 bg-base-300 rounded-full p-3" alt="Tailwind CSS list item" src="/assets/opt-4.png"/></div>
-    <div>
-      <div class="text-lg uppercase font-semibold opacity-60">Got Rewards</div>
-      <div>31 August 5.00 pm  </div>
-    </div>
-  </li>
-  
-</ul>
-      
-    
-    
-    
-    </section>
+   </section>
 
 
 

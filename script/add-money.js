@@ -38,4 +38,15 @@ btnAddmoney.addEventListener("click", function () {
   const newBalance = currentBalanace + Number(addAmount);
   console.log("new amount is $", newBalance);
   setBalance(newBalance);
+
+  //transaction history
+  const history = document.getElementById('history-container');
+  const newHistory = document.createElement('div');
+  newHistory.innerHTML = `  
+  <div class="transaction-card p-5 bg-base-100">
+  Add Money Successful to ${bankName} from AC/ ${accountNumber} at ${new Date ()}
+  </div> 
+   `;
+   history.appendChild (newHistory);
+
 });

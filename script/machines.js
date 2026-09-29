@@ -26,7 +26,7 @@ function showOnly (id){
     const sendOut = document.getElementById('send-out');
     const getBonus = document.getElementById('get-bonus');
     const payBill = document.getElementById('pay-bill');
-    const tranHistory = document.getElementById('tran-history');
+    const tranHistory = document.getElementById('history');
 
     addMoney.classList.add('hidden');
     cashOut.classList.add('hidden');

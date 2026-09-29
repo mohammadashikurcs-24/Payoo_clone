@@ -24,6 +24,16 @@ cashoutBtn.addEventListener('click', function(){
     alert('cashout successfull')
     console.log('New balance $',  newBalance)
     setBalance(newBalance);
+
+    //transaction history
+    const history = document.getElementById('history-container');
+  const newHistory = document.createElement('div');
+  newHistory.innerHTML = `  
+  <div class="transaction-card p-5 bg-base-100">
+  Cash Out ${cashoutAmount} Successful   from  ${cashoutNumber} at ${new Date ()}
+  </div> 
+   `;
+   history.appendChild (newHistory);
    
     
 
